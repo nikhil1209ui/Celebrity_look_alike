@@ -1,0 +1,6 @@
+streamlit
+scikit-learn
+keras-preprocessing
+keras-applications
+keras-vggface
+mtcnn
