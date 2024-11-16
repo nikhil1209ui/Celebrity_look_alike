@@ -13,7 +13,18 @@ import pickle
 detector = MTCNN()
 model = VGGFace(model='resnet50', include_top=False, input_shape=(224, 224, 3), pooling='avg')
 
-feature_list = pickle.load(open('embeddings.pkl', 'rb'))
+
+chunk_files = ['embeddings_1.pkl', 'embeddings_2.pkl', 'embeddings_3.pkl', 'embeddings_4.pkl']
+# List to store all loaded chunks
+all_chunks = []
+# Load each chunk and append its data to `all_chunks`
+for chunk_file in chunk_files:
+    with open(chunk_file, 'rb') as file:
+        chunk_data = pickle.load(file)
+        all_chunks.extend(chunk_data)  # Extend by chunk data
+
+feature_list = all_chunks
+#feature_list = pickle.load(open('embeddings.pkl', 'rb'))
 filenames = pickle.load(open('filenames.pkl', 'rb'))
 
 
