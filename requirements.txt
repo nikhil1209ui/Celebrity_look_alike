@@ -4,3 +4,4 @@ keras-preprocessing
 keras-applications
 keras-vggface
 mtcnn
+tensorflow
